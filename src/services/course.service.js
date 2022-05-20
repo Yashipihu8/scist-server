@@ -26,8 +26,14 @@ const getCourseById = async (id) => {
   return Courses.findById(id);
 };
 
+const queryAllCourse = async () => {
+  const coursesData = await Courses.find().populate({ path: 'department', select: '_id title' });
+  return coursesData;
+};
+
 module.exports = {
   addCourse,
   queryCourse,
   getCourseById,
+  queryAllCourse,
 };

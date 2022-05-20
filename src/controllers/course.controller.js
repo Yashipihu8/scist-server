@@ -2,7 +2,7 @@ const httpStatus = require('http-status');
 
 const ApiError = require('../utils/ApiError');
 const catchAsync = require('../utils/catchAsync');
-const { addCourse, queryCourse, getCourseById } = require('../services/course.service');
+const { addCourse, queryCourse, getCourseById, queryAllCourse } = require('../services/course.service');
 const pick = require('../utils/pick');
 
 const insertCourse = catchAsync(async (req, res) => {
@@ -14,6 +14,11 @@ const getCourses = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['title']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await queryCourse(filter, options);
+  res.send(result);
+});
+
+const getAllCourses = catchAsync(async (req, res) => {
+  const result = await queryAllCourse();
   res.send(result);
 });
 
@@ -29,4 +34,5 @@ module.exports = {
   insertCourse,
   getCourses,
   findCourseById,
+  getAllCourses,
 };
