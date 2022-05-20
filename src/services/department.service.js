@@ -7,8 +7,7 @@ const Department = require('../models/department.model');
  * @returns {Promise<Department>}
  */
 const addDepartment = async (departmentBody) => {
-  const { title, description } = departmentBody;
-  return Department.create(title, description);
+  return Department.create(departmentBody);
 };
 
 const queryDepartment = async (filter, options) => {

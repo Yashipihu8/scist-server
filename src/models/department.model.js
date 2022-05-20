@@ -9,7 +9,6 @@ const departmentSchema = mongoose.Schema(
     },
     description: {
       type: String,
-      ref: 'User',
       required: true,
     },
   },

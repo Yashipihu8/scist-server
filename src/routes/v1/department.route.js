@@ -6,7 +6,7 @@ const auth = require('../../middlewares/auth');
 
 const router = express.Router();
 
-router.route('/').post(validate(create), register).get(auth('admin'), validate(queryDepartmentsValidation), getDepartments);
+router.route('/').post(validate(create), register).get(validate(queryDepartmentsValidation), getDepartments);
 
 router.route('/:deptId').get(auth('admin'), validate(getDepartment), findDepartment);
 

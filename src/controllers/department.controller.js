@@ -7,7 +7,7 @@ const pick = require('../utils/pick');
 
 const register = catchAsync(async (req, res) => {
   const department = await addDepartment(req.body);
-  res.status(httpStatus.CREATED).send({ department });
+  res.status(httpStatus.CREATED).send(department);
 });
 
 const getDepartments = catchAsync(async (req, res) => {
