@@ -14,6 +14,7 @@ const getDepartments = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['title']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await queryDepartment(filter, options);
+  console.log(result)
   res.send(result);
 });
 

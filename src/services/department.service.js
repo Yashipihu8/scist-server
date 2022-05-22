@@ -11,7 +11,7 @@ const addDepartment = async (departmentBody) => {
 };
 
 const queryDepartment = async (filter, options) => {
-  const departments = await Department.paginate(filter, options);
+  const departments = await Department.find();
   return departments;
 };
 
